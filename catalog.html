@@ -2,11 +2,13 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>HTML Academy: Девайс -> каталог товаров</title>
+    <title>HTML Academy: Девайс -> Моноподы для селфи </title>
   </head>
   <body>
     <header>  
-      <a href="index.html">Device</a> 
+      <a href="index.html">
+        <img src="img/logo-device.svg" alt="Device" height="35px" width="163px">
+      </a> 
       <input type="search" name="catalog_search" id="catalog_search"> 
       <a href="catalog.html">Каталог товаров</a>
       <nav>
@@ -29,15 +31,17 @@
         <li><a href="catalog.html">Каталог товаров</a></li>
         <li>Моноподы для селфи</li>
       </ul>
+
+          <!-- Секция №1. Фильтр товаров -->      
       
       <section>
         <h2>Фильтр товаров</h2>
         <form action="#" method="get">
-
-          <!-- Еще не придумал как правильно оформить ползунки -->
-          
           <fieldset>
-            <legend>Стоимость</legend>          
+            <legend>Стоимость</legend>
+            
+          <!-- Еще не придумал как правильно оформить ползунки -->
+            
           </fieldset>          
           
           <feildset>
@@ -81,8 +85,11 @@
         </form>
         <!-- Здесь будет форма -->
       </section>
+ 
+          <!-- Секция №2. Список товаров -->
       
       <section>
+        <h2 class="visually-hidden">Список товаров</h2>
         <ul>
           <li>
             <a href="#">

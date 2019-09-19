@@ -6,7 +6,9 @@
   </head>
   <body>
     <header>
-      <a href="index.html">Device</a> 
+      <a href="index.html">
+        <img src="img/logo-device.svg" alt="Device" height="35px" width="163px">
+      </a> 
       <input type="search" name="catalog_search" id="catalog_search"> 
       <ul>
         <li><a href="#catalog">Каталог товаров</a>
@@ -38,12 +40,13 @@
       <!-- Секция №1. Первый слайдер -->
       
       <section>
+        <h2 class="visually-hidden">Обратите внимание на предложенные товары</h2>
         <ul>
           <li>
             <img src="#" alt="Селфи-палка»">
             <h2>Делай селфи, как Бен Стиллер!</h2>
             <p>Самая длинная палка для селфи доступна в нашем магазине.<br>Восемь (Восемь, Карл!) метров длиной и весом всего 5 килограмм.</p>
-            <a href="#stick">Подробнее</a>
+            <a href="catalog.html">Подробнее</a>
             <input type="radio" id="btn-1" name="toggle" checked>
             <input type="radio" id="btn-2" name="toggle">
             <input type="radio" id="btn-3" name="toggle">
@@ -111,6 +114,7 @@
             <!-- Секция №2. Первый список -->
       
       <section>
+        <h2 class="visually-hidden">Список товаров</h2>
         <ul>
           <li><a href="#vr">Виртуальная реальность</a></li>
           <li><a href="#monopods">Моноподы для селфи</a></li>
@@ -124,6 +128,7 @@
             <!-- Секция №3. Второй слайдер -->
       
       <section>
+        <h2 class="visually-hidden">Наши достоинства</h2>
         <ul>
           <li>
             <a href="#delivery">Доставка</a>
@@ -149,7 +154,7 @@
             <!-- Секция №4. Второй список -->
       
       <section>
-        <h2>Список партнёров</h2>
+        <h2 class="visually-hidden">Список партнёров</h2>
         <ul>
           <li><img src="#" alt="DJI"></li>
           <li><img src="#" alt="SPGadgets"></li>
@@ -206,8 +211,8 @@
     
     <!-- Попап для входа в личный кабинет -->
     
-    <section>
-      <h2>Личный кабинет</h2>
+    <section class="visually-hidden">
+      <h2 class="visually-hidden">Личный кабинет</h2>
       <p>Введите свой логин и пароль.</p>
       <form method="post" action="#">
         <label for="user-login">Ваше имя:</label>
@@ -223,8 +228,8 @@
     
     <!-- Попап для карты -->
     
-    <section>
-      <h2>Местоположение</h2>
+    <section class="visually-hidden">
+      <h2 class="visually-hidden">Местоположение</h2>
       <button type="button">Закрыть</button>
     </section>
   </body>
