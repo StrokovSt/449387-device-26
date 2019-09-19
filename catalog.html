@@ -5,12 +5,26 @@
     <title>HTML Academy: Девайс -> Моноподы для селфи </title>
   </head>
   <body>
+    
+          <!-- Шапка страницы -->
+    
     <header>  
       <a href="index.html">
         <img src="img/logo-device.svg" alt="Device" height="35px" width="163px">
       </a> 
       <input type="search" name="catalog_search" id="catalog_search"> 
-      <a href="catalog.html">Каталог товаров</a>
+      <ul>
+        <li><a href="#catalog">Каталог товаров</a>
+          <ul>
+            <li><a href="#vr">Виртуальная реальность</a></li>
+            <li><a href="catalog.html">Моноподы для селфи</a></li>
+            <li><a href="#acameras">Экшн камеры</a></li>
+            <li><a href="#fbracelets">Фитнес браслеты</a></li>
+            <li><a href="#swatch">Умные часы</a></li>
+            <li><a href="#quadrocopters">Квадрокоптеры</a></li>
+            </ul>
+        </li>
+      </ul>
       <nav>
         <ul>
           <li><a href="#login">Войти</a></li>
@@ -86,7 +100,30 @@
         <!-- Здесь будет форма -->
       </section>
  
-          <!-- Секция №2. Список товаров -->
+          <!-- Секция №2. Сортировка товаров -->
+      
+      <section>
+        <h2>Сортировка:</h2>
+        <ul>
+          <li><a href="#">По цене</a></li>
+          <li><a href="#">По типу</a></li>
+          <li><a href="#">По популярности</a></li>
+        </ul>
+        <ul>
+          <li>
+            <a href="#">
+              <span class="visually-hidden">Сортировать список по возрастанию популярности</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="visually-hidden">Сортировать список по убыванию популярности</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+          <!-- Секция №3. Список товаров -->      
       
       <section>
         <h2 class="visually-hidden">Список товаров</h2>
@@ -128,6 +165,12 @@
             </p>
           </li>
         </ul>
+      </section>
+      
+          <!-- Секция №4. Навигация по списку товаров -->
+        
+      <section>
+        <h2 class="visually-hidden">Навигация по списку товаров</h2>
         <ul>
           <li><a href="#">Назад</a></li>
           <li><a>1</a></li>
@@ -135,8 +178,11 @@
           <li><a href="#">3</a></li>
           <li><a href="#">Вперёд</a></li>
         </ul>
-      </section>
+      </section>  
     </main>
+    
+          <!-- Подвал страницы -->    
+    
     <footer>
       <a href="index.html">Device</a> 
       <p>г.Москва, ул.Строителей, 15</p>
