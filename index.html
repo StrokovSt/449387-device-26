@@ -135,37 +135,49 @@
           <ul>
             <li>
               <a href="">
-                <div class="picture-container"></div>
+                <div class="picture-container">
+                  <img src='/img/popular-1.png' alt="Виртуальная реальность">
+                </div>
                 <p>Виртуальная реальность</p>
               </a>
             </li>
             <li>
               <a href="catalog.html">
-                <div class="picture-container"></div>
+                <div class="picture-container">
+                  <img src='/img/popular-2.png' alt="Моноподы для селфи">
+                </div>
                 <p>Моноподы для селфи</p>
               </a>
             </li>
             <li>
               <a href="">
-                <div class="picture-container"></div>
+                <div class="picture-container">
+                  <img src='/img/popular-3.png' alt="Экшн-камеры">
+                </div>
                 <p>Экшн-камеры</p>
               </a>
             </li>
             <li>
               <a href="">
-                <div class="picture-container"></div>
+                <div class="picture-container">
+                  <img src='/img/popular-4.png' alt="Фитнес браслеты">
+                </div>
                 <p>Фитнес браслеты</p>
               </a>
             </li>
             <li>
               <a href="">
-                <div class="picture-container"></div>
+                <div class="picture-container">
+                  <img src='/img/popular-5.png' alt="Умные часы">
+                </div>
                 <p>Умные часы</p>
               </a>
             </li>
             <li>
               <a href="">
-                <div class="picture-container"></div>
+                <div class="picture-container">
+                  <img src='/img/popular-6.svg' alt="Квадрокоптеры">
+                </div>
                 <p>Квадрокоптеры</p>
               </a>
             </li>
@@ -181,9 +193,15 @@
           <input class="visually-hidden" type="radio" id="slider-2-product-2" name="slider-2-toggle">
           <input class="visually-hidden" type="radio" id="slider-2-product-3" name="slider-2-toggle">
           <div class="slider-2-controls">
-            <label class="slider-2-controls-item-1" for="slider-2-product-1">Доставка</label>
-            <label class="slider-2-controls-item-2" for="slider-2-product-2">Гарантия</label>
-            <label class="slider-2-controls-item-3" for="slider-2-product-3">Кредит</label>
+            <label class="slider-2-controls-item-1" for="slider-2-product-1">
+              <p>Доставка</p> 
+            </label>
+            <label class="slider-2-controls-item-2" for="slider-2-product-2">
+              <p>Гарантия</p>
+            </label>
+            <label class="slider-2-controls-item-3" for="slider-2-product-3">
+              <p>Кредит</p>
+            </label>
           </div>
           <ul class="slider-2-list">
             <li>
@@ -287,27 +305,38 @@
     
     <!-- Попап для входа в личный кабинет -->
     
-    <section class="visually-hidden">
+    <section class="modal modal-login">
       <h2 class="visually-hidden">Личный кабинет</h2>
-      <p>Введите свой логин и пароль.</p>
-      <form method="post" action="#">
-        <label for="user-login">Ваше имя:</label>
-        <input id="user-login" type="text" name="login" placeholder="Логин">
-        <label for="user-password">Ваш e-mail:</label>
-        <input id="user-password" type="password" name="password" placeholder="Пароль">
-        <label for="comment-field">Текст письма</label>
-        <textarea name="comment" id="comment-field" rows="5" placeholder="В свободной форме"></textarea>
-        <button type="submit">Отправить</button>
+      <form class="modal-form" method="post" action="#">
+        <div class="stroke-1">
+          <div class="stroke-column">
+            <label for="user-login">Ваше имя:</label>
+            <input id="user-login" type="text" name="login" placeholder="Имя Фамилия">
+          </div>
+          <div class="stroke-column">
+            <label for="user-password">Ваш e-mail:</label>
+            <input id="user-password" type="password" name="password" placeholder="email@example.com">
+          </div>
+        </div>
+        <div class="stroke-column">
+          <label for="comment-field">Текст письма:</label>
+          <textarea name="comment" id="comment-field" rows="5" placeholder="В свободной форме"></textarea>
+        </div>
+        <a class="special-button" href="">Отправить</a>
       </form>
-      <button type="button">Закрыть</button>
+      <button class="modal-close" type="button">
+        <span class="visually-hidden">Закрыть</span>
+      </button>
     </section>
     
     <!-- Попап для карты -->
-    
-    <section class="visually-hidden">
-      <h2 class="visually-hidden">Местоположение</h2>
-      <img src="#" alt="Карта">
-      <button type="button">Закрыть</button>
+      
+    <section class="modal modal-map">
+      <h2 class="visually-hidden">Как до нас добраться</h2>
+      <img src="img/map-big.jpg.png"  alt="г.Москва, ул.Строителей, 15">
+      <button class="modal-close" type="button">
+        <span class="visually-hidden">Закрыть</span>
+      </button>
     </section>
   </body>
 </html>

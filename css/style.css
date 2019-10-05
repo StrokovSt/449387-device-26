@@ -77,17 +77,16 @@ nav ul {
   list-style: none;
 }
 
-nav ul li a{
+nav a {
   color: #000000;
-  
 }
 
-nav ul li a:hover,
-nav ul li a:focus{
+nav  a:hover,
+nav  a:focus {
   opacity: 0.5;
 }
 
-nav ul li a:active{
+nav a:active{
   opacity: 0.3;
 }
 
@@ -98,15 +97,6 @@ nav > a {
   top: -15px;
   transition-timing-function: ease-in-out;
 }
-
-nav > a:hover {
-  opacity: 0.6;
-}
-
-nav > a:active {
-  opacity: 0.4;
-}
-
 
 /* --------------- Шапка сайта. Свойства левокого блока меню --------------- */
 
@@ -122,11 +112,6 @@ nav > a:active {
   position: relative;
 }
 
-.drop-menu li {
-  z-index: -1;
-  opacity: 0;
-}
-
 .drop-menu > li > a {
   position: relative;
   font-family: Gilroy;
@@ -136,8 +121,6 @@ nav > a:active {
   font-weight: bolder;
   letter-spacing: 1px;
   text-transform: uppercase;
-  opacity: 1;
-  z-index: 2;
 }
 
 .drop-menu-list {
@@ -150,6 +133,8 @@ nav > a:active {
   height: 160px;
   padding: 0;
   background-color: #f7e296;
+  z-index: -1;
+  opacity: 0;
   transition: 1s;
 }
 
@@ -178,7 +163,12 @@ nav > a:active {
 .drop-menu a:focus ~ .drop-menu-list,
 .drop-menu-list:hover
 {
-  display: flex;  
+  opacity: 1;
+  z-index: 2;
+  top: 0;
+}
+
+.drop-menu-list > li > a:focus .drop-menu-list{ 
   opacity: 1;
   z-index: 2;
   top: 0;
@@ -374,7 +364,7 @@ nav > a:active {
 }
 
 .slider-content {
-  width: 
+  width: 500px;
 }
 
 .slider-item h3 {
@@ -432,13 +422,12 @@ nav > a:active {
 /* ------------------ Ссылка слайда (общий класс для подобных ссылок) ------------------ */
 
 .special-button {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  vertical-align: middle;
-  position: relative;
-  font-family: Gilroy;
   
+  font-family: Gilroy;
   width: 220px;
   height: 40px;
   
@@ -456,9 +445,9 @@ nav > a:active {
   content: "";
   
   position: absolute;
-  top: 40%;
-  left: -0;
-  width: 220px;
+  top: 42%;
+  left: 0;
+  width: 100%;
   height: 8px;
   
   background-color: #f0c52e;
@@ -466,12 +455,13 @@ nav > a:active {
   z-index: -1;
 }
 
-.special-button:hover {
+.special-button:hover,
+.special-button:focus
+{
   background-color: #f0c52e;
 }
 
-.special-button:active,
-.special-button:focus {
+.special-button:active {
   background-color: #f0c52e;
   opacity: 0.5;
 }
@@ -564,7 +554,7 @@ nav > a:active {
 .slider-controls {
   position: absolute;
   left: 70%;
-  top: 58%;
+  top: 57%;
   bottom: 42%;
   z-index: 1;
   
@@ -589,8 +579,8 @@ nav > a:active {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   
-  margin-left: 10px;
   transition: opacity 2s, top 1s;
+  transform: scale(0.6);
 }
 
 #product-1:checked ~ .slider-list .slider-item:nth-child(1) {
@@ -652,10 +642,6 @@ nav > a:active {
   flex-direction: column;
 }
 
-.section-block-1 li:first-child img {  
-  margin-bottom: 40px;
-}
-
 .section-block-1 li:first-child {  
   margin-left: 0;
 }
@@ -665,45 +651,23 @@ nav > a:active {
 }
 
 .picture-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 40px;
   width: 160px;
   height: 160px;
   background-color: #f7e296;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
 }
 
-.section-block-1 a:hover .picture-container {
+.section-block-1 a:hover .picture-container,
+.section-block-1 a:focus .picture-container 
+{
   background-color: #f0c52e;
 }
 
-.section-block-1 a:active,
-.section-block-1 a:focus {
+.section-block-1 a:active {
   opacity: 0.4;
-}
-
-li:nth-child(1) .picture-container {
-  background-image: url('/img/popular-1.png');
-}
-
-li:nth-child(2) .picture-container {
-  background-image: url('/img/popular-2.png');
-}
-
-li:nth-child(3) .picture-container {
-  background-image: url('/img/popular-3.png');
-}
-
-li:nth-child(4) .picture-container {
-  background-image: url('/img/popular-4.png');
-}
-
-li:nth-child(5) .picture-container {
-  background-image: url('/img/popular-5.png');
-}
-
-li:nth-child(6) .picture-container {
-  background-image: url('/img/popular-6.svg');
 }
 
 /* ------------------------ Секция №3. Второй слайдер ------------------------ */
@@ -712,7 +676,6 @@ li:nth-child(6) .picture-container {
   background-color: #e5e5e5;
   height: 290px;
   box-sizing: border-box;
-  z-index: -2;
 }
 
 .slider-2 .container {
@@ -720,6 +683,7 @@ li:nth-child(6) .picture-container {
   top: -30px;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 }
 
 /* ------------------ Контроллеры второго слайда (левый блок) ------------------ */
@@ -744,22 +708,29 @@ li:nth-child(6) .picture-container {
 
 .slider-2-controls label {
   position: relative;
-  display: flex; 
   width: 280px;
   height: 40px;
-  align-items: center;
-  justify-content: flex-start;
   color: #000000;
+  
+  margin-bottom: 25px;
+  
+  transition: 0.3s;
+}
+
+.slider-2-controls p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  
   font-family: Gilroy; 
   font-size: 18px;
   line-height: 24px;
   font-weight: bolder;
-  padding-left: 18px;
-  margin-bottom: 25px;
   letter-spacing: 2px;
-  
-  z-index: 2;
-  transition: 0.3s;
 }
 
 /* ------------------ Содержание слайдов (правый блок) ------------------ */
@@ -815,7 +786,7 @@ li:nth-child(6) .picture-container {
 
 /* ------------------ Псевдоэлементы для лейблов ------------------ */
 
-.slider-2-controls label::after {
+.slider-2-controls p::after {
   content: "";
   
   position: absolute;
@@ -828,24 +799,9 @@ li:nth-child(6) .picture-container {
   z-index: -1;
 }
 
-#slider-2-product-1:hover ~ .slider-2-controls .slider-2-controls-item-1::after,
-#slider-2-product-2:hover ~ .slider-2-controls .slider-2-controls-item-2::after,
-#slider-2-product-3:hover ~ .slider-2-controls .slider-2-controls-item-3::after {
-  opacity: 0;
-}
-
-#slider-2-product-1:hover ~ .slider-2-controls .slider-2-controls-item-1,
-#slider-2-product-2:hover ~ .slider-2-controls .slider-2-controls-item-2,
-#slider-2-product-3:hover ~ .slider-2-controls .slider-2-controls-item-3 {
-  background-color: #000000;
-  color: #f7e184;
-}
-
-#slider-2-product-1:checked ~ .slider-2-controls .slider-2-controls-item-1::after,
-#slider-2-product-2:checked ~ .slider-2-controls .slider-2-controls-item-2::after,
-#slider-2-product-3:checked ~ .slider-2-controls .slider-2-controls-item-3::after {
-  opacity: 0;
-}
+.slider-2-controls p:hover {
+  background-color: #f0c52e;
+} 
 
 #slider-2-product-1:checked ~ .slider-2-controls .slider-2-controls-item-1,
 #slider-2-product-2:checked ~ .slider-2-controls .slider-2-controls-item-2,
@@ -941,6 +897,7 @@ li:nth-child(6) .picture-container {
 
 .section-block-2 .special-button::after {
   width: 260px;
+  top: 40%;
 }
 
 /* ------------------------ Левый артикль ------------------------ */
@@ -1041,13 +998,13 @@ footer p {
 
 /* ---------------- Первый блок подвала ---------------- */
 
-.footer-section a:hover {
-  opacity: 0.5;
+.footer-section a:hover,
+.footer-section a:focus {
+  opacity: 0.6;
 }
 
-.footer-section  a:active,
-.footer-section  a:focus {
-  opacity: 0.3;
+.footer-section  a:active {
+  opacity: 0.4;
 }
 
 .footer-section-1 ul li{
@@ -1064,7 +1021,7 @@ footer p {
   font-size: 15px;
   line-height: 30px;
   color: white;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .footer-section-1 ul li a:hover {
@@ -1134,7 +1091,6 @@ footer p {
   color: white;
 }
 
-
 /* ---------------- Третий блок подвала ---------------- */
 
 .footer-section-3 ul {
@@ -1149,11 +1105,166 @@ footer p {
   opacity: 0.5;
 }
 
-.footer-section-3 a:hover {
+.footer-section-3 a:hover,
+.footer-section-3 a:focus {
   opacity: 1;
 }
 
-.footer-section-3 a:active,
-.footer-section-3 a:focus {
-  opacity: 0.3;
+.footer-section-3 a:active {
+  opacity: 0.4;
 }
+
+/* -------------------------------- Модальное окно №1. Личный кабинет -------------------------------- */
+
+.modal {
+  position: fixed;
+  top: 20%;
+  left: 25%;
+  
+  width: 960px;
+  box-sizing: border-box;
+  
+  padding: 100px;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7);
+  
+  z-index: 5;
+}
+
+/* ---------------- Крестик ---------------- */
+
+.modal-login {
+  display: none;
+}
+
+.modal-close {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+
+  top: 2%;
+  right: 2%;
+
+  border: 0;
+  
+  opacity: 0.6;
+
+  cursor: pointer;
+}
+
+.modal-close::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 55px;
+  height: 55px;
+
+  background-image: url('/img/modal-close.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  opacity: 1;
+}
+
+.modal-close:active {
+  opacity: 0.4;
+}
+
+/* ---------------- Ссылка ---------------- */
+
+.modal-form .special-button {
+  width: 200px;
+}
+
+.modal-form .special-button::after {
+  width: 200px;
+}
+
+/* ----------------- Форма ----------------- */
+
+.stroke-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 40px;
+}
+
+.stroke-column {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.modal-login label{
+  font-family: Gilroy;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bolder;
+  
+  margin-bottom: 10px;
+}
+
+.stroke-column input{
+  width: 360px;
+  padding: 19px;
+  box-sizing: border-box;
+  border: 3px solid white;
+  
+  font-size: 14px;
+  line-height: 18px;
+  opacity: 0.5;
+  
+  background-color: #eaeaea;
+}
+
+.stroke-column textarea{
+  width: 100%;
+  padding: 19px;
+  box-sizing: border-box;
+  border: 3px solid white;
+  margin-bottom: 45px;
+  
+  font-size: 14px;
+  line-height: 18px;
+  opacity: 0.5;
+  
+  background-color: #eaeaea;
+}
+
+.stroke-column input:hover,
+.stroke-column textarea:hover {
+  opacity: 1;
+}
+
+.stroke-column input:focus,
+.stroke-column textarea:focus {
+  color: #000000;
+  background-color: white;
+  opacity: 1;
+  border-color: #f7e296;
+}
+
+/* -------------------------- Модальное окно №2. Карта ---------------------------- */
+
+.modal-map {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  
+  width: 960px;
+  height: 540px;
+  padding: 0;
+  background-color: inherit;
+  
+  top: 30%;
+  left: 25%;
+}
+
+
+
