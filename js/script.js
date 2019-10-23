@@ -34,7 +34,6 @@
   });
 
   var mapLink = document.querySelector(".button-map");
-
   var mapPopup = document.querySelector(".modal-map");
   var mapClose = mapPopup.querySelector(".modal-close");
   
