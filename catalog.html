@@ -13,19 +13,21 @@
     <header>
       <div class="container">
         <nav>
-          <a href="index.html">
-            <img src="img/logo-device.svg" alt="Device" height="35" width="163">
-          </a> 
           <div class="header-section-1">
+          <div class="logo-container">
+            <a href="index.html">
+              <img src="img/logo-device.svg" alt="Device" height="35" width="163">
+            </a> 
+          </div>
             <form action="htmlacademy.ru" method="get" class="meow">
               <input type="search" name="catalog_search" id="catalog_search" placeholder="Поиск по сайту">
               <input type="submit" value="Найти">
             </form>
           <ul class="drop-menu">
-            <li>
+            <li class="nav-sub-menu">
               <a href="">Каталог товаров</a>
               <ul class="drop-menu-list">
-                <li class="meow">
+                <li>
                   <a href="">Виртуальная реальность</a>
                   <a href="">Моноподы для селфи</a>
                   <a href="">Экшн камеры</a>
@@ -39,6 +41,7 @@
             </li>
           </ul>
           </div>
+
           <div class="header-section-2">
             <ul>
               <li><a href="">Войти</a></li>
@@ -60,10 +63,10 @@
     <main>
       <div class="container selfi-sorting">
         <h1>Моноподы для селфи</h1>
-        <ul>
-          <li class="nav-arrow"><a href="index.html">Главная</a></li>
-          <li class="nav-arrow"><a href="">Каталог товаров</a></li>
-          <li><a href="">Моноподы для селфи</a></li>
+        <ul class="selfi-list">
+          <li class="nav-arrow"><a class="selfi-link" href="index.html">Главная</a></li>
+          <li class="nav-arrow"><a class="selfi-link" href="">Каталог товаров</a></li>
+          <li><a class="selected-link">Моноподы для селфи</a></li>
         </ul>
       </div>
       
@@ -77,9 +80,9 @@
           <div class="sorting-section">
             <h2>Сортировка:</h2>
             <ul class="sort-container">
-              <li><a href="" class="selected">По цене</a></li>
-              <li><a href="">По типу</a></li>
-              <li><a href="">По популярности</a></li>
+              <li><a href="" class="sort-link link-selected">По цене</a></li>
+              <li><a href="" class="sort-link">По типу</a></li>
+              <li><a href="" class="sort-link">По популярности</a></li>
             </ul>
             <ul class="arrow-container">
               <li>
@@ -102,7 +105,7 @@
           <div class="left-container">
           
             <section class="filter-section">
-              <form action="#" method="get">
+              <form class="filter-form" action="#" method="get">
 
                 <fieldset class="filter filter-range ">
                   <h3>Стоимость</h3>
@@ -147,14 +150,20 @@
 
                 <fieldset class="filter bluetooth-filter">
                   <h3>Bluetooth</h3>
-                  <input class="visually-hidden" type="radio" name="option" value="yes" id="option1" checked>
-                  <label for="option1">Есть</label>
-                  <input class="visually-hidden" type="radio" name="option" value="nope" id="option2" disabled>
-                  <label for="option2">Нет</label>
-                  <a href="" class="special-button">Показать</a>
+                  <ul>
+                    <li class="bluetooth-item">
+                      <input class="visually-hidden" type="radio" name="option" value="yes" id="option1" checked>
+                        <label for="option1">Есть</label>
+                    </li>
+                    <li class="bluetooth-item">
+                      <input class="visually-hidden" type="radio" name="option" value="nope" id="option2">
+                      <label for="option2">Нет</label> 
+                    </li>
+                  </ul>
                 </fieldset>
+                <a href="" class="special-button">Показать</a>
               </form>
-            </section>  
+            </section>          
           </div>
             
               <!-- Секция №3. Список товаров -->      
@@ -228,22 +237,23 @@
               </ul>
             </section>
 
-              <!-- Секция №4. Навигация по списку товаров -->
+              <!-- Секция №4. Навигация по списку товаров --> 
 
             <section class="nav-section">
               <h2 class="visually-hidden">Навигация по списку товаров</h2>
               <ul>
                 <li class="nav-button"><a href="">Назад</a></li>
                 <li class="nav-button-ul">
-                  <ul >
-                    <li><a href="" class="selected">1</a></li>  
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
+                  <ul class="sub-nav-list">
+                    <li><a class="sub-nav-list__link selected-link">1</a></li>  
+                    <li><a class="sub-nav-list__link" href="">2</a></li>
+                    <li><a class="sub-nav-list__link" href="">3</a></li>
                   </ul>
                 </li>  
                 <li class="nav-button"><a href="">Вперёд</a></li>
               </ul>
-            </section>  
+            </section> 
+            
           </div>
         </div>
       </div> 
@@ -255,30 +265,36 @@
       <div class="container">
         <div class="footer-section footer-section-1">
           <a href="index.html">
-            <img src="img/logo-color.svg.png" alt="Device" height="35" width="163">
+            <img src="img/logo-color.svg.png" alt="Device">
           </a> 
-          <ul>
+          <ul class="footer-section-1-list">
             <li><a href="">Войти</a></li>
             <li><a href="">Сравнить</a></li>
             <li><a href="">Корзина</a></li>
           </ul>
         </div>
         <div class="footer-section footer-section-2">
-          <p>г.Москва, ул.Строителей, 15</p>
-          <ul>
-            <li><a href="">Доставка</a></li>
-            <li><a href="">Гарантия</a></li>
-            <li><a href="">Контакты</a></li>
-          </ul>
-          <p>Тел.: +7 (495) 495-95-95</p>
-        </div>
-        <div class="footer-section footer-section-3">
-          <ul>
-            <li><a href="https://www.facebook.com/"><img src="img/fb.svg" alt="facebook" width="34" height="34"></a></li>
-            <li><a href="https://www.instagram.com"><img src="img/instagram.svg" alt="instagram" width="34" height="34"></a></li>
-            <li class="twitter"><a href="https://twitter.com"><img src="img/twitter.svg" alt="twitter" width="34" height="34"></a></li>
-          </ul>
-          <a href="https://htmlacademy.ru"><img src="img/logo-html.svg" alt="htmlacademy.ru"></a>
+          <div class="footer-section-2__item-1">
+            <p>г.Москва, ул.Строителей, 15</p>
+          </div>
+          <div class="footer-section-2__item-2">
+            <ul class="service-sheet">
+              <li><a href="">Доставка</a></li>
+              <li><a href="">Гарантия</a></li>
+              <li><a href="">Контакты</a></li>
+            </ul>
+            <ul class="social-list">
+              <li><a href="https://www.facebook.com/"><img src="img/fb.svg" alt="facebook"></a></li>
+              <li><a href="https://www.instagram.com"><img src="img/instagram.svg" alt="instagram"></a></li>
+              <li><a href="https://twitter.com"><img src="img/twitter.svg" alt="twitter"></a></li>
+            </ul>
+          </div>
+          <div class="footer-section-2__item-3">
+            <p>Тел.: +7 (495) 495-95-95</p>
+            <a class="html-logo" href="https://htmlacademy.ru">
+              <img src="img/logo-html.svg" alt="htmlacademy.ru">
+            </a>
+          </div>
         </div>
       </div>
     </footer>

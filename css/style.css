@@ -1,5 +1,10 @@
 /* Глобальные свойства */
 
+*{
+  padding: 0;
+  margin: 0;
+}
+
 body {
   min-width: 1200px;
   margin: 0;
@@ -43,14 +48,14 @@ a {
 
 @font-face {
   font-family: 'Gilroy';
-  src: url(/fonts/web/gilroylight.woff) format('woff');
+  src: url(../fonts/web/gilroylight.woff) format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Gilroy';
-  src: url(/fonts/web/gilroyextrabold.woff) format('woff');
+  src: url(../fonts/web/gilroyextrabold.woff) format('woff');
   font-weight:bold;
   font-style: normal;
 }
@@ -65,13 +70,13 @@ nav {
   position: relative;
   
   height: 300px;
-  box-sizing: border-box;
   margin: 0 auto;
   padding: 50px 60px 45px 60px;
+  box-sizing: border-box;
   
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   
   font-size: 18px;
@@ -100,9 +105,9 @@ nav a:active {
 
 /* --------------- Шапка сайта. Логотопип --------------- */
 
-nav > a {
+.logo-container {
   position: absolute;
-  top: -15px;
+  top: -65px;
   
   transition-timing-function: ease-in-out;
 }
@@ -123,9 +128,12 @@ nav > a {
   margin-top: 30px;
 }
 
-.drop-menu > li > a {
-  position: relative;
-  
+.nav-sub-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-sub-menu > a {
   font-family: Gilroy;
   font-size: 18px;
   font-weight: bolder;
@@ -135,22 +143,20 @@ nav > a {
 
 .drop-menu-list {
   position: relative;
-  left: -60px;
-  top: -30px;
+  transform: translateX(-60px);
   
   width: 580%;
-  height: 130px;
-  padding: 0;
   margin-top: 20px;
   
   display: flex;
-
+  visibility: hidden;
+  
+  opacity: 0;
   list-style: none;
   background-color: #f7e296;
   
-  z-index: -1;
-  opacity: 0;
-  transition: 1s;
+  transition: 0.5s;
+  z-index: 2;
 }
 
 .drop-menu-list li {
@@ -164,11 +170,11 @@ nav > a {
   margin-left: 60px;
 }
 
-.drop-menu-list li:not(.meow) {
+.drop-menu-list li:not(:first-child) {
   padding-left: 50px;
 }
 
-.drop-menu-list li  a {
+.drop-menu-list  a {
   display: inline-block;
   
   font-size: 15px;
@@ -177,22 +183,20 @@ nav > a {
 }
 
 .drop-menu-list li  a:last-child {
-  margin-bottom: 45px;
+  margin-bottom: 25px;
 }
 
 .drop-menu a:hover ~ .drop-menu-list,
 .drop-menu a:focus ~ .drop-menu-list,
 .drop-menu-list:hover
 {
-  z-index: 2;
   opacity: 1;
-  top: 0;
+  visibility: visible;
 }
 
 .drop-menu-list > li > a:focus .drop-menu-list { 
-  z-index: 2;
   opacity: 1;
-  top: 0;
+  visibility: visible;
 }
 
 /* --------------- Форма поиска --------------- */
@@ -310,7 +314,7 @@ nav > a {
   width: 20px;
   height: 20px;
   
-  background-image: url(/img/user.svg);
+  background-image: url(../img/user.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -325,7 +329,7 @@ nav > a {
   width: 20px;
   height: 20px;
   
-  background-image: url(/img/compare.svg);
+  background-image: url(../img/compare.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -340,7 +344,7 @@ nav > a {
   width: 20px;
   height: 20px;
   
-  background-image: url(/img/cart.svg);
+  background-image: url(../img/cart.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -355,7 +359,7 @@ nav > a {
   width: 17px;
   height: 17px;
   
-  background-image: url(/img/plus.svg);
+  background-image: url(../img/plus.svg);
   background-repeat: no-repeat;
   background-position: center;
   
@@ -372,7 +376,7 @@ nav > a {
   width: 20px;
   height: 20px;
   
-  background-image: url(/img/search.svg);
+  background-image: url(../img/search.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -401,12 +405,9 @@ nav > a {
   position: relative;
   
   width: 100%;
-  height: 500px;
   padding:0 60px;
-  
   display: none;
   justify-content: space-between;
-  
   box-sizing: border-box;
 }
 
@@ -444,14 +445,12 @@ nav > a {
 }
 
 .slider-item table {
-  margin: 0;
   margin-top: 65px;
   width: 460px;
   border-collapse: collapse;
 }
 
 .slider-item th {
-  width: 100px;
   font-family: Gilroy;
   font-size: 36px;
   line-height: 46px;
@@ -461,7 +460,6 @@ nav > a {
 }
 
 .slider-item td {
-  width: 100px;
   font-size: 13px;
   line-height: 20px;
 }
@@ -577,7 +575,6 @@ nav > a {
 
 .slider-img {
   position: relative;
-  top: -18%;
   
   display: flex;
   align-items: center;
@@ -588,13 +585,17 @@ nav > a {
   z-index: 1;
 }
 
+.slider-img img {
+  position: absolute;
+  top: -18%;
+}
+
 /* --------------- Контроллеры первого слайдера --------------- */
 
 .slider-controls {
   position: absolute;
-  right: 17%;
-  top: 57%;
-  bottom: 42%;
+  right: 20%;
+  bottom: 20%;
   
   width: 160px;
   height: 22px;
@@ -602,7 +603,6 @@ nav > a {
   
   font-size: 0;
   z-index: 1;
-  transform: translateX(-50%);
 }
 
 .slider-controls label {  
@@ -614,7 +614,7 @@ nav > a {
   padding: 8px;
 
   cursor: pointer;
-  background-image: url('/img/slider-button-empty.svg');
+  background-image: url('../img/slider-button-empty.svg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   
@@ -643,7 +643,7 @@ nav > a {
   padding: 8px;
 
   cursor: pointer;
-  background-image: url('/img/slider-button.svg');
+  background-image: url('../img/slider-button.svg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   
@@ -675,11 +675,11 @@ nav > a {
   font-size: 18px;
 }
 
-.section-block-1 li:first-child {  
+.section-block-1 li:nth-child(6n+1) {  
   margin-left: 0;
 }
 
-.section-block-1 li:last-child {
+.section-block-1 li:nth-child(6n+6) {
   margin-right:  0;
 }
 
@@ -707,7 +707,7 @@ nav > a {
 /* ------------------------ Секция №3. Второй слайдер ------------------------ */
 
 .slider-2 {
-  height: 290px;
+  min-height: 290px;
   box-sizing: border-box;
   
   background-color: #e5e5e5;
@@ -736,13 +736,12 @@ nav > a {
   content: '';
   
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: -25%;
+  right: 0;
   
-  width: 100%;
+  height: 120%;
   
-  transform: rotate(90deg);
-  border-top: 7px solid #000000;
+  border-right: 7px solid #000000;
 }
 
 .slider-2-controls .slider-controller {
@@ -1000,7 +999,7 @@ nav > a {
   width: 10px;
   height: 10px;
 
-  background-image: url('/img/slider-button.svg');
+  background-image: url('../img/slider-button.svg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   opacity: 0.2;
@@ -1040,8 +1039,6 @@ footer .container {
 
 footer ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 footer li {
@@ -1055,10 +1052,16 @@ footer p {
 .footer-section {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
 }
 
 /* ---------------- Первый блок подвала ---------------- */
+
+.footer-section-1 {
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
 
 .footer-section a:hover,
 .footer-section a:focus 
@@ -1070,15 +1073,11 @@ footer p {
   opacity: 0.4;
 }
 
-.footer-section-1 ul li{
+.footer-section-1-list li:not(:first-child){
   margin-left: 40px;
 }
 
-.footer-section-1 ul li:first-child {
-  margin-left: 0;
-}
-
-.footer-section-1 ul li a {
+.footer-section-1-list a {
   position: relative;
   
   padding-left: 23px;
@@ -1089,16 +1088,16 @@ footer p {
   opacity: 0.6;
 }
 
-.footer-section-1 ul li a:hover {
+.footer-section-1-list a:hover {
   opacity: 1;
 }
 
-.footer-section-1 ul li a:active,
-.footer-section-1 ul li a:focus {
+.footer-section-1-list a:active,
+.footer-section-1-list a:focus {
   opacity: 0.3;
 }
 
-.footer-section-1 ul li:nth-child(1) a::before {
+.footer-section-1-list li:nth-child(1) a::before {
   content: '';
   
   position: absolute;
@@ -1108,12 +1107,12 @@ footer p {
   width: 20px;
   height: 20px;
   
-  background-image: url(/img/user-color.svg);
+  background-image: url(../img/user-color.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.footer-section-1 ul li:nth-child(2) a::before {
+.footer-section-1-list li:nth-child(2) a::before {
   content: '';
   
   position: absolute;
@@ -1123,12 +1122,12 @@ footer p {
   width: 20px;
   height: 20px;
   
-  background-image: url(/img/compare-color.svg);
+  background-image: url(../img/compare-color.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.footer-section-1 ul li:nth-child(3) a::before {
+.footer-section-1-list li:nth-child(3) a::before {
   content: '';
   
   position: absolute;
@@ -1138,26 +1137,30 @@ footer p {
   width: 20px;
   height: 20px;
   
-  background-image: url(/img/cart-color.png);
+  background-image: url(../img/cart-color.png);
   background-repeat: no-repeat;
   background-position: center;
 }
 
 /* ---------------- Второй блок подвала ---------------- */
 
-.footer-section-2 {
-  align-items: baseline;
-}
-
-.footer-section-2 p:first-child {
+.footer-section-2__item-1 p {
   opacity: 0.5;
 }
 
-.footer-section-2 li{
+.footer-section-2__item-2 .service-sheet{
+  display: flex;
+  justify-content: center;
+  width: 440px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.service-sheet li:not(:last-child) {
   margin-right: 35px;
 }
 
-.footer-section-2 a{
+.service-sheet a {
   font-family: Gilroy;
   font-size: 18px;
   line-height: 24px;
@@ -1166,27 +1169,37 @@ footer p {
   color: white;
 }
 
-/* ---------------- Третий блок подвала ---------------- */
-
-.footer-section-3 ul {
+.social-list {
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
 }
 
-.footer-section-3 li:not(.twitter) {
+.social-list li:not(:last-child) {
   margin-right: 22px;
 }
 
-.footer-section-3 a {
+.social-list a {
   opacity: 0.5;
 }
 
-.footer-section-3 a:hover,
-.footer-section-3 a:focus {
+.social-list a:hover,
+.social-list a:focus {
   opacity: 1;
 }
 
-.footer-section-3 a:active {
+.social-list a:active {
   opacity: 0.4;
+}
+
+.footer-section-2__item-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-section-2__item-3 p{
+  margin-bottom: 60px;
 }
 
 /* ---------------------- Модальное окно №1. Личный кабинет (block) ------------------------- */
@@ -1286,7 +1299,7 @@ footer p {
   width: 55px;
   height: 55px;
 
-  background-image: url('/img/modal-close.svg');
+  background-image: url('../img/modal-close.svg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
@@ -1406,21 +1419,21 @@ textarea:invalid {
   align-items: center;
   justify-content: center;
   width: 960px;
-  height: 540px;
   padding: 0;
   box-sizing: border-box;
   
   background-color: inherit;
 }
 
-.modal-map  img {
-  position: absolute;
-  
-  z-index: -1;
+.modal-map img {
 }
 
 .modal-map iframe {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .modal-show-flex {
@@ -1433,13 +1446,16 @@ textarea:invalid {
 
 .selfi-sorting {
   padding-left: 80px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+}
+
+.selfi-sorting h1 {
+  margin-top: 40px;
+  margin-bottom: 35px;
 }
 
 .selfi-sorting ul{
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .selfi-sorting li{
@@ -1449,8 +1465,16 @@ textarea:invalid {
   padding-right: 25px;
 }
 
-.selfi-sorting a{
+.selfi-sorting a {
+  font-size: 14px;
+  line-height: 24px;  
+  font-weight: lighter;
+  
   opacity: 0.6;
+}
+
+.selfi-list .selected-link {
+  cursor: default;
 }
 
 .selfi-sorting .nav-arrow::after{
@@ -1463,18 +1487,18 @@ textarea:invalid {
   width: 9px;
   height: 9px;
 
-  background-image: url(/img/nav-arrow.svg);
+  background-image: url(../img/nav-arrow.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
 
-.selfi-sorting a:hover,
-.selfi-sorting a:focus
+.selfi-link:hover,
+.selfi-link:focus
 {
   opacity: 1;
 }
 
-.selfi-sorting a:active {
+.selfi-link:active {
   opacity: 0.3;
 }
 
@@ -1486,23 +1510,45 @@ textarea:invalid {
   display: flex;
 }
 
+.main-strip .container {
+  display: flex;
+}
+
 .main-strip {
   position: relative;
   
-  background-color: #efefef;
+  background-color: #ebebeb;
 }
 
-.main-strip .container, 
-.big-container .container {
+.main-strip ::before { 
+  content: '';
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  width: 23%;
+  min-height: 70px;
+  
+  background-color: #dbdbdb;
+  z-index: -5;
+}
+
+.big-container .container { 
   display: flex;
 }
 
 .left-container {
-  width: 200px;
-  padding-right: 68px;
-  padding-left: 60px;
-  
+  width: 328px;
   background-color: #efefef;
+}
+
+.right-container {  
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-left: 72px;
+  padding-right: 20px;
 }
 
 .left-container::before {
@@ -1516,11 +1562,7 @@ textarea:invalid {
   width: 20%;
   
   background-color: #efefef;
-}
-
-.right-container {
-  box-sizing: border-box;
-  padding-left: 55px;
+  z-index: -1;
 }
 
 /* --------------------- Заголовок фильтров ---------------------- */
@@ -1528,25 +1570,12 @@ textarea:invalid {
 .filter-heading { 
   display: flex;
   align-items: center;
-  width: 200px;
-  padding-right: 68px;
-  padding-left: 60px;
+  width: 268px;
   height: 70px;
+  margin-left: 60px;
   
   background-color: #dbdbdb;
-}
-
-.filter-heading::before { 
-  content: '';
-  
-  position: absolute;
-  top: 0;
-  left: 0;
-  
-  width: 20%;
-  height: 70px;
-  
-  background-color: #dbdbdb;
+  z-index: 1;
 }
 
 .filter-heading h2 {
@@ -1567,10 +1596,10 @@ textarea:invalid {
   display: flex;
   flex: 1;
   align-items: center;
-  height: 70px;
+  min-height: 70px;
   box-sizing: content-box;
-  padding-left: 37px;
   padding-right: 20px;
+  padding-left: 72px;
   
   background-color: #ebebeb;
 }
@@ -1598,21 +1627,26 @@ textarea:invalid {
   margin-right: 20px;
 }
 
-.sort-container > li > a {
+.sort-link {
+  font-weight: bold;
   color: #000000;
   opacity: 0.4;
   transition: 0.25s;
 }
 
-.sort-container > li > a:hover,
-.sort-container > li > a:focus {
+.sort-link:hover,
+.sort-link:focus {
   opacity: 0.6;
 }
 
-.sort-container > li > a:active {
+.sort-link:active {
   opacity: 1;
 }
 
+.sort-container .link-selected {
+  opacity: 1;
+  cursor: default;
+}
 
 .sorting-section .arrow-container {
   margin-left: auto;
@@ -1658,6 +1692,7 @@ textarea:invalid {
 
 .arrow-container .arrow-selected {
   opacity: 1;
+  cursor: default;
 }
 
 /* --------------------------------- Блок фильтров --------------------------------- */
@@ -1674,9 +1709,10 @@ textarea:invalid {
   border-top: 2px solid black;
   
   background-color: #eeeeee; 
+  z-index: 1;
 }
 
-.filter-range h3{
+.filter-range h3 {
   margin: 0;
   margin-bottom: 20px;
   margin-top: 15px;
@@ -1694,8 +1730,6 @@ textarea:invalid {
   bottom: 0px;
   
   height: 36px;
-  
-  font-size: 0;
 }
 
 .price-controls label {
@@ -1782,6 +1816,12 @@ textarea:invalid {
   border: none;
   border-top: 2px solid black;
   margin-top: 15px;
+  box-sizing: border-box;
+}
+
+.filter-form a{
+  width: 200px;
+  margin-top: 35px;
 }
 
 .filter h3 { 
@@ -1797,8 +1837,6 @@ textarea:invalid {
 
 .filter-color ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .filter-color li {
@@ -1830,9 +1868,8 @@ textarea:invalid {
   padding: 8px;
 
   cursor: pointer;
-  background-image: url('/img/checkbox-off.svg');
+  background-image: url('../img/checkbox-off.svg');
   background-repeat: no-repeat;
-  transition: 0.25s;
 }
 
 .color-item label::before:hover{
@@ -1840,7 +1877,8 @@ textarea:invalid {
 }
 
 .color-item input:checked + label::before {
-  background-image: url('/img/checkbox-on.svg');
+  background-image: url('../img/checkbox-on.svg');
+  background-repeat: no-repeat;
 }
 
 .color-item input:disabled + label {
@@ -1849,12 +1887,20 @@ textarea:invalid {
 
 /* --------------------- bluetooth фильтр ---------------------- */
 
-.bluetooth-filter {
-  display: flex;
+.bluetooth-filter ul{
+  list-style: none;
 }
 
-.bluetooth-filter label{
+.bluetooth-filter li {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.bluetooth-filter label {
   position: relative;
+  
   padding-left: 40px;
   
   font-size: 14px;
@@ -1875,17 +1921,13 @@ textarea:invalid {
   padding: 8px;
 
   cursor: pointer;
-  background-image: url('/img/radio-off.svg');
+  background-image: url('../img/radio-off.svg');
   background-repeat: no-repeat;
   transition: 0.25s;
 }
 
 .bluetooth-filter input:checked + label::before {
-  background-image: url('/img/radio-on.svg');
-}
-
-.bluetooth-filter a{
-  margin: 40px 0;
+  background-image: url('../img/radio-on.svg');
 }
 
 .bluetooth-filter input:disabled + label {
@@ -1895,13 +1937,13 @@ textarea:invalid {
 /* --------------------- Фильтр товаров ---------------------- */
 
 .list-section  {
-  padding-top: 70px;
+  margin-top: 70px;
 }
 
 .list-section ul{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -1909,13 +1951,12 @@ textarea:invalid {
 
 .list-item  {
   position: relative;
-  
-  display: inline-block;
 }
 
 .list-item p {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 35px;
   
   font-family: Gilroy;
 }
@@ -2000,8 +2041,7 @@ textarea:invalid {
 /* --------------------- Навигация по товарам ---------------------- */
 
 .nav-section {
-  margin-bottom: 80px;
-  margin-top: 20px;
+  margin-bottom: 75px;
   
   background-color: #ebebeb;
 }
@@ -2050,16 +2090,20 @@ textarea:invalid {
   width: 40px;
 }
 
-.nav-button-ul li a {
+.sub-nav-list__link {
   opacity: 0.3;
 }
 
-.nav-button-ul li a:hover,
-.nav-button-ul li a:focus {
+.sub-nav-list__link:hover,
+.sub-nav-list__link:focus {
   opacity: 0.6;
 }
 
-.nav-button-ul li a:active,
-.nav-button-ul li .selected {
+.sub-nav-list__link:active,
+.sub-nav-list .selected-link {
   opacity: 1;
+}
+
+.sub-nav-list .selected-link {
+  cursor: default;
 }
